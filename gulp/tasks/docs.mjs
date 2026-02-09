@@ -71,6 +71,8 @@ task(
 // ----------------------------------------
 
 task('build:docs:static:build', (cb) => {
+  const staging = !!process.env.STAGING
+  console.log({staging})
   build({ staging: !!process.env.STAGING }).then(cb)
 })
 

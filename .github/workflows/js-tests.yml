@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: '0 3 * * 6'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason'
+        required: false
+        default: 'Manual trigger'
+
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--no-experimental-detect-module --no-experimental-require-module --openssl-legacy-provider'
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20.x, 22.x, 24.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test JavaScript
+        run: yarn test
+
+      - name: Test TypeScript
+        run: yarn tsd:test
+
+      - name: Test UMD bundle
+        run: yarn test:umd
+
+      - name: Build Docs
+        run: yarn build:docs
+        env:
+          STAGING: true
