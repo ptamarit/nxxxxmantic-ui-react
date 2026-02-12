@@ -8735,9 +8735,10 @@ http-cache-semantics@^4.1.0:
   resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-4.1.0.tgz#49e91c5cbf36c9b94bcfcd71c23d5249ec74e390"
   integrity sha512-carPklcUh7ROWRK7Cv27RPtdhYhUsela/ue5/jKzjegVvXDqM2ILE9Q2BGn9JZJh1g87cp56su/FgQSzcWS8cQ==
 
-http-deceiver@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/http-deceiver/-/http-deceiver-1.2.7.tgz#fa7168944ab9a519d337cb0bec7284dc3e723d87"
+http-deceiver@^1.2.7, "http-deceiver@npm:http-deceiver-fixes@1.2.8":
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/http-deceiver-fixes/-/http-deceiver-fixes-1.2.8.tgz#549856fd181d5bbc182a9c14041c1014c77bf216"
+  integrity sha512-8zy9XTX06R8yHus7ma4RNZrXkLikctjeQvHvjrv7pJntAJWhsEEwbBsu0J6Oxo7YAFl1XHtKZYXBzECWJPsogw==
 
 http-errors@1.6.2, http-errors@~1.6.2:
   version "1.6.2"
