@@ -9,19 +9,19 @@ on:
       - master
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: '0 3 * * 6'
+    - cron: "0 3 * * 6"
   workflow_dispatch:
     inputs:
       reason:
-        description: 'Reason'
+        description: "Reason"
         required: false
-        default: 'Manual trigger'
+        default: "Manual trigger"
 
 jobs:
   Tests:
     runs-on: ubuntu-latest
     env:
-      NODE_OPTIONS: '--no-experimental-detect-module --no-experimental-require-module --openssl-legacy-provider'
+      NODE_OPTIONS: "--no-experimental-detect-module --no-experimental-require-module --openssl-legacy-provider"
 
     strategy:
       fail-fast: false
@@ -36,7 +36,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: "yarn"
 
       - name: Install
         run: yarn install --frozen-lockfile
