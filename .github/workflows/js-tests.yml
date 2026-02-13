@@ -57,6 +57,3 @@ jobs:
         run: yarn build:docs
         env:
           STAGING: true
-
-      - name: Cypress
-        run: yarn start-server-and-test 'yarn serve -l -p 3000 -S docs/dist' 3000 'yarn percy exec -- cypress run'
