@@ -208,6 +208,7 @@
     }
   },
   "publishConfig": {
-    "ptamarit:registry": "https://npm.pkg.github.com"
+    "ptamarit:registry": "https://npm.pkg.github.com",
+    "registry": "https://npm.pkg.github.com"
   }
 }
