@@ -30,6 +30,11 @@ jobs:
           yarn install --frozen-lockfile
           yarn build
 
+      - name: Publish on GitHub Packages
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
@@ -41,8 +46,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
-
-      - name: Publish on GitHub Packages
-        run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
