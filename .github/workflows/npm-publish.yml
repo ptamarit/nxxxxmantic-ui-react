@@ -32,12 +32,6 @@ jobs:
           yarn install --frozen-lockfile
           yarn build
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "20"
-          registry-url: "https://npm.pkg.github.com"
-
       - name: Publish on GitHub Packages
         run: yarn publish
         env:
