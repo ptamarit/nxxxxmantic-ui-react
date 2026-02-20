@@ -206,8 +206,5 @@
       "PR: Internal :house:": ":house: Internal",
       "PR: Performance :running_woman:": ":running_woman: Performance"
     }
-  },
-  "publishConfig": {
-    "ptamarit:registry": "https://npm.pkg.github.com"
   }
 }
